@@ -30,7 +30,7 @@ jobs:
         file: ./Dockerfile.amd64
         platforms: linux/amd64
         push: true
-        tags: solyhe84/chfs:amd64
+        tags: solyhe84/chfsxxx:amd64
 
     - name: Build and Push Docker image for arm64
       uses: docker/build-push-action@v2
@@ -39,4 +39,4 @@ jobs:
         file: ./Dockerfile.arm64
         platforms: linux/arm64
         push: true
-        tags: solyhe84/chfs:arm64
+        tags: solyhe84/chfsxxx:arm64
