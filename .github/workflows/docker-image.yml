@@ -22,14 +22,22 @@ jobs:
         && mkdir -p ~/.docker/cli-plugins \
         && mv buildx ~/.docker/cli-plugins/docker-buildx
 
-    - name: Build and push Docker image
+    - name: Build Docker image for x86_64
       env:
+        TARGETPLATFORM: linux/amd64
         DOCKER_USERNAME: solyhe84
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         docker buildx create --use
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker buildx build --platform linux/amd64 -t solyhe84/chfs:latest .
 
-        # 构建多平台镜像
-        docker buildx build --platform linux/amd64,linux/arm64 -t solyhe84/chfs:latest .
-        docker push solyhe84/chfs:latest
+    - name: Build Docker image for arm64
+      env:
+        TARGETPLATFORM: linux/arm64
+        DOCKER_USERNAME: solyhe84
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        docker buildx create --use
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker buildx build --platform linux/arm64 -t solyhe84/chfs:latest .
