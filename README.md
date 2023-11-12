@@ -3,7 +3,23 @@
 
 ## 用法 / Usage
 ```
-docker pull amorphobia/chfs
-docker run -d -p 80:80 -v <host_path>:/home -e RULE=<rules> amorphobia/chfs
+docker run -d -p 8008:80 -v <data_path>:/home solyhe84/chfs:arm64
+```
+## docker-compose用法
+```
+version: "3"
+
+services:
+  chfs:
+    image: solyhe84/chfs:arm64
+    container_name: chfs
+    # privileged: true
+    restart: always
+    volumes:
+      - ./data:/home
+      - ./chfs.ini:/app/chfs.ini
+    ports:
+      - 8008:80
 ```
 规则详见 [chfs 网页](http://iscute.cn/chfs)
+
