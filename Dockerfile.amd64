@@ -8,5 +8,5 @@ COPY chfs-linux-amd64 chfs
 COPY chfs.ini .
 
 EXPOSE 80
-RUN pwd
-CMD ["/bin/sh", "-c", "/app/chfs --file=/app/chfs.ini"]
+RUN chmod +x chfs
+CMD ["./chfs --file=chfs.ini"]
