@@ -9,10 +9,10 @@ ARG TARGETPLATFORM
 ENV TARGETPLATFORM=${TARGETPLATFORM}
 
 # 判断平台并选择性地复制文件
-RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+RUN if [ ${TARGETPLATFORM} = "linux/amd64" ]; then \
         echo "Copying for x86_64 platform"; \
         cp chfs-linux-amd64 chfs; \
-    elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
+    elif [ ${TARGETPLATFORM} = "linux/arm64" ]; then \
         echo "Copying for arm64 platform"; \
         cp chfs-linux-arm64 chfs; \
     else \
