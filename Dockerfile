@@ -4,8 +4,9 @@ FROM alpine:latest as builder
 # 设置工作目录
 WORKDIR /app
 
-# 默认平台为 x86_64
-# ARG TARGETPLATFORM=linux/amd64
+# 从 GitHub Actions 传递过来的环境变量
+ARG TARGETPLATFORM
+ENV TARGETPLATFORM=${TARGETPLATFORM}
 
 # 根据平台选择性地复制文件
 COPY chfs-${TARGETPLATFORM} chfs
