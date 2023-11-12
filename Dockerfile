@@ -9,7 +9,7 @@ ARG TARGETPLATFORM
 ENV TARGETPLATFORM=${TARGETPLATFORM}
 
 # 使用 SHELL 指令切换到 Shell，使用 && 连接多个命令
-SHELL ["/bin/ash", "-c"]
+SHELL ["/bin/bash", "-c"]
 
 # 判断平台并选择性地复制文件
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
