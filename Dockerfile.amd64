@@ -9,4 +9,4 @@ COPY chfs.ini .
 
 EXPOSE 80
 
-CMD ["/bin/sh", "-c", "chfs --file=chfs.ini"]
+CMD ["/bin/sh", "-c", "./chfs --file=./chfs.ini"]
