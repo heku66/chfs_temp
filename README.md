@@ -1,3 +1,7 @@
+# 已迁移至 https://github.com/heku66/chfs
+# 本实例仅供自行学习
+
+
 # chfs
 [CuteHttpFileServer/chfs](http://iscute.cn/chfs) 是一个免费的、HTTP协议的文件共享服务器，使用浏览器可以快速访问。
 
