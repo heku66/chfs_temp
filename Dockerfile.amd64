@@ -9,4 +9,4 @@ COPY chfs.ini .
 
 EXPOSE 80
 RUN chmod +x chfs
-CMD ["./chfs --file=chfs.ini"]
+CMD ["./chfs -file=chfs.ini"]
