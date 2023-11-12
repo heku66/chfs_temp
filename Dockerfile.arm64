@@ -10,4 +10,4 @@ COPY chfs.ini .
 EXPOSE 80
 # 在运行阶段查看工作目录中的文件
 RUN chmod +x chfs
-CMD ["./chfs -file=chfs.ini"]
+CMD ["./chfs","-file=chfs.ini"]
