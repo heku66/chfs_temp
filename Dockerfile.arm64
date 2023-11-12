@@ -8,5 +8,6 @@ COPY chfs-linux-arm64 chfs
 COPY chfs.ini .
 
 EXPOSE 80
-
+# 在运行阶段查看工作目录中的文件
+RUN ls -l
 CMD ["/bin/sh", "-c", "./chfs --file=./chfs.ini"]
