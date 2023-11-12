@@ -13,7 +13,6 @@ services:
   chfs:
     image: solyhe84/chfs:arm64
     container_name: chfs
-    # privileged: true
     restart: always
     volumes:
       - ./data:/home
