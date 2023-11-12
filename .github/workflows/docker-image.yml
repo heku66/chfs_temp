@@ -27,7 +27,7 @@ jobs:
       run: |
         docker buildx create --use
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker buildx build --platform linux/amd64 -t solyhe84/chfs:latest --build-arg TARGETPLATFORM=linux/amd64 .
+        docker buildx build --platform linux/amd64 -t solyhe84/chfs:latest -f Dockerfile.amd64 .
 
     - name: Build Docker image for arm64
       env:
@@ -37,4 +37,4 @@ jobs:
       run: |
         docker buildx create --use
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker buildx build --platform linux/arm64 -t solyhe84/chfs:latest --build-arg TARGETPLATFORM=linux/arm64 .
+        docker buildx build --platform linux/arm64 -t solyhe84/chfs:latest -f Dockerfile.arm64 .
