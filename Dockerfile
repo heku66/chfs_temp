@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-LABEL maintainer="Xuesong Peng <@amorphobia>"
+LABEL maintainer="solyhe84"
 
 ENV RULE="::r|user:admin:r:filebox:rwd"
 
