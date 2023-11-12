@@ -8,15 +8,18 @@ WORKDIR /app
 ARG TARGETPLATFORM
 ENV TARGETPLATFORM=${TARGETPLATFORM}
 
+# 使用 SHELL 指令切换到 Shell，使用 && 连接多个命令
+SHELL ["/bin/ash", "-c"]
+
 # 判断平台并选择性地复制文件
-RUN if [ ${TARGETPLATFORM} = "linux/amd64" ]; then \
-        echo "Copying for x86_64 platform"; \
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+        echo "Copying for x86_64 platform" && \
         cp chfs-linux-amd64 chfs; \
-    elif [ ${TARGETPLATFORM} = "linux/arm64" ]; then \
-        echo "Copying for arm64 platform"; \
+    elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
+        echo "Copying for arm64 platform" && \
         cp chfs-linux-arm64 chfs; \
     else \
-        echo "Unsupported platform"; \
+        echo "Unsupported platform" && \
         exit 1; \
     fi
 
